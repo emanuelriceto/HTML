@@ -1,215 +1,233 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Nosso Amor 💖</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand&display=swap');
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nosso Amor 💖</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      background: linear-gradient(to right, #ffe0e9, #ffc3c3);
-      font-family: 'Quicksand', sans-serif;
-      color: #5a2a2a;
-      text-align: center;
-      padding: 20px;
-    }
+        body {
+            background: linear-gradient(to right, #ffe0e9, #ffc3c3);
+            font-family: 'Quicksand', sans-serif;
+            color: #5a2a2a;
+            text-align: center;
+            padding: 20px;
+        }
 
-    .top-heart {
-      width: 80px;
-      margin: 0 auto 10px;
-      display: block;
-    }
+        .top-heart {
+            width: 80px;
+            margin: 0 auto 10px;
+            display: block;
+        }
 
-    h1 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.8em;
-      margin: 20px 0;
-      color: #c2185b;
-      animation: pulse 2s infinite;
-    }
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.8em;
+            margin: 20px 0;
+            color: #c2185b;
+            animation: pulse 2s infinite;
+        }
 
-    p {
-      font-size: 1.2em;
-      margin: 10px auto 30px;
-      max-width: 90%;
-    }
+        p {
+            font-size: 1.2em;
+            margin: 15px auto 35px; /* Aumentei um pouco a margem inferior */
+            max-width: 90%;
+            line-height: 1.6; /* Melhora a legibilidade */
+        }
 
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 30px;
-    }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
 
-    .gallery img {
-      width: 100%;
-      max-width: 160px;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      transition: transform 0.3s ease;
-    }
+        .gallery img {
+            width: 100%;
+            max-width: 160px;
+            border-radius: 10px; /* Bordas mais suaves */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transição para a sombra também */
+        }
 
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
+        .gallery img:hover {
+            transform: scale(1.05) translateY(-5px); /* Adiciona um leve "flutuar" */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada no hover */
+        }
 
-    /* Canvas para animação do coração */
-    #heartCanvas {
-      width: 100%;
-      max-width: 400px;
-      height: auto;
-      margin: 20px auto;
-      display: block;
-      background-color: #fff0f5;
-      border-radius: 10px;
-      border: 2px dashed #e91e63;
-    }
+        /* Canvas para animação do coração */
+        #heartCanvas {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            margin: 20px auto;
+            display: block;
+            background-color: #fff0f5;
+            border-radius: 10px;
+            border: 2px dashed #e91e63;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Leve sombra */
+        }
 
-    h2 {
-      margin: 30px 0 10px;
-      font-size: 1.5em;
-      color: #b71c1c;
-    }
+        h2 {
+            margin: 30px 0 15px; /* Aumentei um pouco a margem inferior */
+            font-size: 1.5em;
+            color: #b71c1c;
+        }
 
-    /* Imagem decorativa redimensionada com borda pontilhada */
-    .func-img {
-      width: 400px;
-      height: 133px;
-      margin: 20px auto;
-      display: block;
-      object-fit: contain;
-      background-color: #fff0f5;
-      border-radius: 10px;
-      border: 2px dashed #e91e63;
-    }
+        /* Imagem decorativa redimensionada com borda pontilhada */
+        .func-img {
+            width: 400px;
+            height: auto; /* Ajustar a altura automaticamente para manter a proporção */
+            max-height: 150px; /* Altura máxima para evitar que fique muito grande em telas menores */
+            margin: 20px auto;
+            display: block;
+            object-fit: contain;
+            background-color: #fff0f5;
+            border-radius: 10px;
+            border: 2px dashed #e91e63;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Leve sombra consistente */
+        }
 
-    footer {
-      margin-top: 40px;
-      font-size: 1em;
-      color: #8e2a2a;
-    }
+        footer {
+            margin-top: 40px;
+            padding-bottom: 20px; /* Adiciona um pouco de espaço abaixo do rodapé */
+            font-size: 1em;
+            color: #774d4d; /* Cor um pouco diferente */
+        }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
+        footer p {
+            margin: 5px 0; /* Espaçamento entre as linhas do rodapé */
+            font-size: 0.9em; /* Reduz um pouco o tamanho da fonte no rodapé */
+        }
 
-    /* Responsividade para iPhone */
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 2.2em;
-      }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
 
-      p {
-        font-size: 1em;
-      }
+        /* Responsividade para iPhone */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.2em;
+            }
 
-      .gallery img {
-        max-width: 130px;
-      }
+            p {
+                font-size: 1em;
+                margin-bottom: 25px; /* Ajusta a margem inferior em telas menores */
+            }
 
-      #heartCanvas {
-        max-width: 90%;
-      }
+            .gallery img {
+                max-width: 130px;
+                border-radius: 8px; /* Bordas um pouco menores em telas pequenas */
+            }
 
-      h2 {
-        font-size: 1.2em;
-      }
+            #heartCanvas {
+                max-width: 90%;
+            }
 
-      .func-img {
-        width: 90%;
-        height: auto;
-      }
+            h2 {
+                font-size: 1.2em;
+                margin-top: 25px; /* Ajusta a margem superior em telas menores */
+            }
 
-      footer {
-        font-size: 0.9em;
-      }
-    }
-  </style>
+            .func-img {
+                width: 90%;
+                height: auto;
+                max-height: none; /* Remove a altura máxima em telas menores para melhor adaptação */
+            }
+
+            footer {
+                font-size: 0.9em;
+                margin-top: 30px; /* Ajusta a margem superior em telas menores */
+            }
+
+            footer p {
+                font-size: 0.85em; /* Reduz ainda mais a fonte do rodapé em telas pequenas */
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <h1>Feliz Aniversário de Namoro 👩🏼‍❤️‍💋‍👨🏽</h1>
-  <p>Essa página é só nossa. Cada momento vivido é um pedaço do nosso amor guardado com carinho. ❤️</p>
+    <h1>Feliz Aniversário de Namoro 👩🏼‍❤️‍💋‍👨🏽</h1>
+    <p>Essa página é só nossa. Cada momento vivido é um pedaço do nosso amor guardado com carinho. ❤️</p>
 
-  <div class="gallery">
-    <img src="us.jpg" alt="Nós dois" />
-    <img src="us2.jpg" alt="Outro momento" />
-    <img src="us8.jpg" alt="Outro momento" />
-    <img src="us6.jpg" alt="Outro momento" />
-    <img src="us5.jpg" alt="Outro momento" />
-    <img src="us3.jpg" alt="Outro momento" />
-    <img src="us13.jpg" alt="Outro momento" />
-    <img src="us4.jpg" alt="Outro momento" />
-    <img src="us11.jpg" alt="Outro momento" />
-    <img src="us10.jpg" alt="Outro momento" />
-    <img src="us9.jpg" alt="Outro momento" />
-    <img src="us12.jpg" alt="Outro momento" />
-  </div>
+    <div class="gallery">
+        <img src="us.jpg" alt="Nós dois" />
+        <img src="us2.jpg" alt="Outro momento" />
+        <img src="us8.jpg" alt="Outro momento" />
+        <img src="us6.jpg" alt="Outro momento" />
+        <img src="us5.jpg" alt="Outro momento" />
+        <img src="us3.jpg" alt="Outro momento" />
+        <img src="us13.jpg" alt="Outro momento" />
+        <img src="us4.jpg" alt="Outro momento" />
+        <img src="us11.jpg" alt="Outro momento" />
+        <img src="us10.jpg" alt="Outro momento" />
+        <img src="us9.jpg" alt="Outro momento" />
+        <img src="us12.jpg" alt="Outro momento" />
+    </div>
 
 
-  <h2>Resolvi usar matemática para tentar mostrar o quanto eu te amo 🤓</h2>
+    <h2>Resolvi usar matemática para tentar mostrar o quanto eu te amo 🤓</h2>
 
-  <!-- Imagem decorativa com mesmo contorno do canvas -->
-  <img src="funcao.png" 
-       alt="Função Matemática do Coração" class="func-img" />
+    <img src="funcao.png"
+         alt="Função Matemática do Coração" class="func-img" />
 
-  <!-- Canvas animado do coração -->
-  <canvas id="heartCanvas" width="400" height="400"></canvas>
+    <canvas id="heartCanvas" width="400" height="400"></canvas>
 
-  <script>
-    const canvas = document.getElementById("heartCanvas");
-    const ctx = canvas.getContext("2d");
+    <script>
+        const canvas = document.getElementById("heartCanvas");
+        const ctx = canvas.getContext("2d");
 
-    let t = 0;
-    const maxT = Math.PI * 2;
-    const step = 0.02;
+        let t = 0;
+        const maxT = Math.PI * 2;
+        const step = 0.02;
 
-    function drawHeart() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.beginPath();
+        function drawHeart() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
 
-      let started = false;
+            let started = false;
 
-      for (let theta = 0; theta <= t; theta += 0.01) {
-        const x = 16 * Math.pow(Math.sin(theta), 3);
-        const y = 13 * Math.cos(theta) - 5 * Math.cos(2 * theta) - 2 * Math.cos(3 * theta) - Math.cos(4 * theta);
-        const canvasX = 200 + x * 10;
-        const canvasY = 200 - y * 10;
+            for (let theta = 0; theta <= t; theta += 0.01) {
+                const x = 16 * Math.pow(Math.sin(theta), 3);
+                const y = 13 * Math.cos(theta) - 5 * Math.cos(2 * theta) - 2 * Math.cos(3 * theta) - Math.cos(4 * theta);
+                const canvasX = 200 + x * 10;
+                const canvasY = 200 - y * 10;
 
-        if (!started) {
-          ctx.moveTo(canvasX, canvasY);
-          started = true;
-        } else {
-          ctx.lineTo(canvasX, canvasY);
+                if (!started) {
+                    ctx.moveTo(canvasX, canvasY);
+                    started = true;
+                } else {
+                    ctx.lineTo(canvasX, canvasY);
+                }
+            }
+
+            ctx.strokeStyle = "#e91e63";
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            if (t < maxT) {
+                t += step;
+                requestAnimationFrame(drawHeart);
+            }
         }
-      }
 
-      ctx.strokeStyle = "#e91e63";
-      ctx.lineWidth = 3;
-      ctx.stroke();
+        drawHeart();
+    </script>
 
-      if (t < maxT) {
-        t += step;
-        requestAnimationFrame(drawHeart);
-      }
-    }
-
-    drawHeart();
-  </script>
-
-  <footer>
-    <p>Com todo o meu amor ❤️</p>
-     <p> Emanuel Riceto da Silva</p>
-  </footer>
+    <footer>
+        <p>Com todo o meu amor ❤️</p>
+        <p> Emanuel Riceto da Silva</p>
+    </footer>
 </body>
 </html>
